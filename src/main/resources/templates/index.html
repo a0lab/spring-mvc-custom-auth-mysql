@@ -18,6 +18,11 @@
             </button>
             <a class="navbar-brand" href="#" th:href="@{/}">Registration and Login Module</a>
         </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
+            </ul>
+        </div>
     </div>
 </nav>
 
@@ -27,6 +32,7 @@
     <h2>Registration and Login with Spring Boot, Spring Security,
         Thymeleaf, Hibernate and MySQL</h2>
     Welcome <span sec:authentication="principal.username"> User</span>
+    <p sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></p>
 </div>
 </body>
 </html>
